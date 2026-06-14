@@ -1,5 +1,9 @@
 import "./App.css";
 import Header from "./components/Header";
+import Main from "./components/Main";
+import Form from "./components/Form";
+import Section from "./components/Section";
+
 import { useState } from "react";
 
 function App() {
@@ -18,24 +22,14 @@ function App() {
   }
 
   return (
-    <main className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-      <div className="bg-purple-600">
-        <input
-          type="text"
-          name="valor"
-          id="valor"
-          placeholder="Digite um numero"
-          value={valor}
-          onChange={(e) => setValor(e.target.value)}
-        />
-        <button id="botao" className="bg-purple-950" onClick={Gerar}>
-          Gerar
-        </button>
-        <div id="resultado" className="bg-purple-100">
-          {resultado}
-        </div>
-      </div>
-    </main>
+    <div className="bg-gray-100 font-sans min-h-screen flex items-center justify-center p-4">
+      <Main>
+        <Header>
+          <Form valor={valor} setValor={setValor} Gerar={Gerar} />
+          <Section resultado={resultado} />
+        </Header>
+      </Main>
+    </div>
   );
 }
 
